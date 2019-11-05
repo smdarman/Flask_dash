@@ -24,7 +24,7 @@ import datetime as dt
 import numpy as np
 import plotly.graph_objs as go
 
-import pandas as pd
+
 import pandas_datareader.data as web
 
 import plotly.offline as pyl
