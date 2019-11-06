@@ -1,18 +1,12 @@
 
-
+import flask
 import dash
 import dash_html_components as html
 import pandas as pd
 
 
-from flaskblog import app2
 
-server = flask.Flask(__name__)
 
-app2 = dash.Dash(
-    __name__,
-    server=server,
-    routes_pathname_prefix='/app2/')
 
 
 
@@ -33,8 +27,5 @@ def generate_table(dataframe, max_rows=26):
 
 
 
-app2.layout = html.Div(children=[
-    html.H4(children='StackOverflow - Html dash table'),
-    generate_table(df)
-])
+
 

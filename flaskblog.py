@@ -12,9 +12,7 @@ from dash.dependencies import Output, Input, State
 import pandas_datareader.data as web
 from dateutil.relativedelta import relativedelta
 import plotly.graph_objs as go
-import datetime
-import pandas as pd
-import requests
+
 import datetime
 from dateutil.relativedelta import relativedelta
 import pandas as pd
@@ -40,69 +38,14 @@ import pandas as pd
 import json
 import requests
 from pandas import DataFrame
+from app import *
+from app2 import *
 
 
-def update_news():
-    url = "https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=59982f2b928e48c29577788db6fa2ef3"
-
-
-    # article = r["articles"]
-    # results = []
-    #
-    # for ar in article:
-    #   results.append(ar["title"])
-    #
-    # for an in article:
-    #   results.append(an["url"])
-    #
-    #
-    #
-    # for i in range(len(results)):
-    #   print(i + 1, (results[i]))
-
-    r = requests.get(url).json()
-    article = r["articles"]
-
-    df = DataFrame(article)
-    title = df.title
-    link = df.url
-
-    for i in range(len(title)):
-      print(i + 1, (title[i]))
-
-
-    # df = df.title
-
-    return html.Div(
-        [
-            html.Div(
-                html.Table(
-                    # Header
-                    [html.Tr([html.Th()])]
-                    +
-                    # Body
-                    [
-                        html.Tr(
-                            [
-                                html.Td(
-                                    html.A(
-                                        '; '.join(title)[:],
-                                        href=link[i],
-                                        target="_blank"
-                                    )
-                                )
-                            ]
-                        )
-
-                    ]
-                ),
-                style={"height": "400px", "overflowY": "scroll"},
-            ),
-        ],
-        style={"height": "100%"},)
 
 
 server = flask.Flask(__name__)
+
 
 
 app = dash.Dash(
@@ -110,42 +53,7 @@ app = dash.Dash(
     server=server,
     routes_pathname_prefix='/dash/')
 
-app2 = dash.Dash(
-    __name__,
-    server=server,
-    routes_pathname_prefix='/app2/')
-
-# app2.layout = html.Div("Dash app 2")
-data = {'Cap' : ['A', 'B', 'C', ], 'non-Cap' : ['a','b','c', ]}
-df = pd.DataFrame(data)
-
-def generate_table(dataframe, max_rows=26):
-    return html.Table(
-        # Header
-        [html.Tr([html.Th(col) for col in dataframe.columns]) ] +
-        # Body
-        [html.Tr([
-            html.Td(dataframe.iloc[i][col]) for col in dataframe.columns
-        ]) for i in range(min(len(dataframe), max_rows))]
-    )
-
-
-
-app2.layout = html.Div(children=[
-    html.H4(children='StackOverflow - Html dash table'),
-    generate_table(df)
-])
-
-
-@server.route("/about")
-def about():
-    return render_template('about.html', title='About')
-
-
-
-@server.route("/home")
-def home():
-    return render_template('home.html', posts=posts)
+# app.config.suppress_callback_exceptions = True
 
 app.layout = html.Div([
         html.Div([
@@ -172,6 +80,44 @@ app.layout = html.Div([
 
         ], className="row")
     ])
+
+
+
+
+app2 = dash.Dash(
+    __name__,
+    server=server,
+    routes_pathname_prefix='/app2/')
+
+app2.layout = html.Div(children=[
+    html.H4(children='StackOverflow - Html dash table'),
+    generate_table(df)
+])
+
+
+# app.layout = html.Div([
+#     dcc.Location(id='url', refresh=False),
+#     html.Div(id='page-content')
+# ])
+
+
+
+
+
+
+
+
+
+@server.route("/about")
+def about():
+    return render_template('about.html', title='About')
+
+
+
+@server.route("/home")
+def home():
+    return render_template('home.html', title='home')
+
 
 
 
@@ -290,31 +236,39 @@ def update_fig(n_clicks, input_value):
     }
 
 
-posts = [
-    {
-        'author': 'Salaiman darman',
-        'title': 'Blog Post 1',
-        'content': 'first post content',
-        'date_posted': 'april 20, 2019',
-    },
-    {
-        'author': 'janckie dee',
-        'title': 'Blog Post 2',
-        'content': 'second post content',
-        'date_posted': 'april 21s32'
-                       ', 2019',
-    }
+# posts = [
+#     {
+#         'author': 'Salaiman darman',
+#         'title': 'Blog Post 1',
+#         'content': 'first post content',
+#         'date_posted': 'april 20, 2019',
+#     },
+#     {
+#         'author': 'janckie dee',
+#         'title': 'Blog Post 2',
+#         'content': 'second post content',
+#         'date_posted': 'april 21s32'
+#                        ', 2019',
+#     }
+#
+#
+#
+#          ]
 
 
 
-         ]
-
-
-
-
+# @app.callback(Output('page-content', 'children'),
+#               [Input('url', 'pathname')])
+# def display_page(pathname):
+#     if pathname == '/dash':
+#          return layout1
+#     elif pathname == '/app2':
+#          return layout2
+#     else:
+#         return '404'
 
 
 
 
 if __name__ == "__main__":
-    app.run_server(debug=True, port=5006)
+    app2.run_server(debug=True, port=5006)
