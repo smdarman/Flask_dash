@@ -7,7 +7,10 @@ import pandas as pd
 
 
 
-
+app = dash.Dash(
+    __name__,
+    requests_pathname_prefix='/app2/'
+)
 
 
 
@@ -29,3 +32,7 @@ def generate_table(dataframe, max_rows=26):
 
 
 
+app.layout = html.Div(children=[
+    html.H4(children='StackOverflow - Html dash table'),
+    generate_table(df)
+])

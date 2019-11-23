@@ -1,21 +1,11 @@
 {% extends "layout.html" %}
 {% block content %}
 
-    {% for post in posts %}
+    <h1> Home Page! </h1>
 
-<article class="media content-section">
-	<div class="media-body">
-		<div class="article-metadata">
-			<a class="mr-2" href="#">{{ post.author }}</a>
-			<small class="text-muted">{{ post.date_posted }}</small>
-		</div>
-		<h2><a class="article-title" href="#">{{ post.title }}</a></h2>
-		<p class="article-content">{{ post.content }}</p>
-	</div>
-</article>
-    <h1> Home page! </h1>
+<iframe src="http://localhost:8050/app2" width=700 height=600></iframe>
 
 
-	{% endfor %}
+
 
 {% endblock content %}
