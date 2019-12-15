@@ -4,25 +4,12 @@ from flask import Flask, render_template, url_for
 import flask
 
 
-
-
-
-
-
 flask_app = flask.Flask(__name__)
-
-
-
-
-
-
-
-
 
 
 @flask_app.route('/')
 def index():
-    return 'Hello Flask app'
+    return render_template('home.html')
 
 
 
@@ -41,23 +28,6 @@ def home():
 
 
 
-
-
-# posts = [
-#     {
-#         'author': 'Salaiman darman',
-#         'title': 'Blog Post 1',
-#         'content': 'first post content',
-#         'date_posted': 'april 20, 2019',
-#     },
-#     {
-#         'author': 'janckie dee',
-#         'title': 'Blog Post 2',
-#         'content': 'second post content',
-#         'date_posted': 'april 21s32'
-#                        ', 2019',
-#     }
-#
 
 
 

@@ -170,7 +170,7 @@ app = dash.Dash(
 app.layout = html.Div([
         html.Div([
             html.H2("Stock App"),
-            html.Img(src="/assets/ml_map_guide.png")
+            html.Img(src="/Users/salaiman/PycharmProjects/Dash-flask/Flask_dash/static/blog/ml_map guide.png")
         ], className="banner"),
 
         html.Div([
@@ -185,10 +185,10 @@ app.layout = html.Div([
                 )
             ], className="six columns"),
 
-            html.Div([
-                html.H3("Market News"),
-                # html.H4(update_news())
-            ], className="six columns"),
+            # html.Div([
+            #     html.H3("Market News"),
+            #     # html.H4(update_news())
+            # ], className="six columns"),
 
         ], className="row")
     ])
