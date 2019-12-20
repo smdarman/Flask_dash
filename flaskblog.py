@@ -27,6 +27,11 @@ def home():
 
 
 
+@flask_app.route("/stock")
+def stock():
+    return render_template('Stock_chart.html', title= 'stock')
+
+
 
 
 

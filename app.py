@@ -45,127 +45,6 @@ app = dash.Dash(
 )
 
 
-### do this in javascript
-
-# def update_news():
-#     url = "https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=59982f2b928e48c29577788db6fa2ef3"
-#
-#     r = requests.get(url).json()
-#     article = r["articles"]
-#
-#     keys = {'title'}
-#
-#     key1 = {'description', 'url'}
-#
-#     l = [{k: v for k, v in i.items() if k in keys} for i in article]
-#
-#     m = [{k: v for k, v in i.items() if k in key1} for i in article]
-#
-#     # results = []
-#
-#     for dic in l:
-#         for val in dic.values():
-#             results = []
-#             results.append(val)
-#             print(val)
-#
-#     for d in m:
-#         for va in d.values():
-#             result = []
-#             result.append(va)
-#             print(va)
-#
-#     return val, va
-
-
-    # results = []
-    #
-    # for ar in article:
-    #   results.append(ar["title"])
-    #   for an in article:
-    #      results.append(an["url"])
-    #
-    #
-    #
-    #
-    # for i in range(len(results)):
-    #   print(i + 1, (results[i]))
-    #
-    #
-    #
-    #
-    # df = DataFrame(article)
-    # title = df.title
-    # link = df.url
-    #
-    # for i in range(len(results)):
-    #   print(i + 1, (results[i]))
-
-    # # Init
-    # newsapi = NewsApiClient(api_key='59982f2b928e48c29577788db6fa2ef3')
-    #
-    # # /v2/top-headlines
-    #
-    # top_headlines = newsapi.get_top_headlines(q='rate',
-    #
-    #                                           category='business',
-    #                                           language='en',
-    #                                           country='us')
-    #
-    # # /v2/everything
-    # all_articles = newsapi.get_everything(q='bitcoin',
-    #                                       sources='bbc-news,the-verge',
-    #                                       domains='bbc.co.uk,techcrunch.com',
-    #                                       from_param='2019-10-09',
-    #                                       to='2019-10-09',
-    #                                       language='en',
-    #                                       sort_by='relevancy',
-    #                                       page=2)
-    # # df = pd.DataFrame(top_headlines)
-    #
-    # x = top_headlines["articles"]
-    #
-    # # article = ["df"]
-    # # results = []
-    # #
-    # # for ar in article:
-    # #   results.append(ar["title"])
-    #
-    # # for an in article:
-    # #   results.append(an["url"])
-    # #
-    # #
-    # #
-    # # for i in range(len(results)):
-    # #   print(i + 1, (results[i]))
-    #
-    # # return print(top_headlines)
-    #
-    # return print(x[0]['content'])
-
-    # df = df.title
-
-
-
-    # return html.Div(
-    #     [
-    #         html.Div(
-    #
-    #
-    #        val
-    #
-    #
-    #
-    #         ),
-    #         html.Div(
-    #
-    #         va
-    #
-    #         ),
-    #     ],
-    #     )
-
-
 
 app.layout = html.Div([
         html.Div([
@@ -306,3 +185,125 @@ def update_fig(n_clicks, input_value):
     "data": data,
     "layout": layout
     }
+
+
+
+    ### do this in javascript
+
+# def update_news():
+#     url = "https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=59982f2b928e48c29577788db6fa2ef3"
+#
+#     r = requests.get(url).json()
+#     article = r["articles"]
+#
+#     keys = {'title'}
+#
+#     key1 = {'description', 'url'}
+#
+#     l = [{k: v for k, v in i.items() if k in keys} for i in article]
+#
+#     m = [{k: v for k, v in i.items() if k in key1} for i in article]
+#
+#     # results = []
+#
+#     for dic in l:
+#         for val in dic.values():
+#             results = []
+#             results.append(val)
+#             print(val)
+#
+#     for d in m:
+#         for va in d.values():
+#             result = []
+#             result.append(va)
+#             print(va)
+#
+#     return val, va
+
+
+    # results = []
+    #
+    # for ar in article:
+    #   results.append(ar["title"])
+    #   for an in article:
+    #      results.append(an["url"])
+    #
+    #
+    #
+    #
+    # for i in range(len(results)):
+    #   print(i + 1, (results[i]))
+    #
+    #
+    #
+    #
+    # df = DataFrame(article)
+    # title = df.title
+    # link = df.url
+    #
+    # for i in range(len(results)):
+    #   print(i + 1, (results[i]))
+
+    # # Init
+    # newsapi = NewsApiClient(api_key='59982f2b928e48c29577788db6fa2ef3')
+    #
+    # # /v2/top-headlines
+    #
+    # top_headlines = newsapi.get_top_headlines(q='rate',
+    #
+    #                                           category='business',
+    #                                           language='en',
+    #                                           country='us')
+    #
+    # # /v2/everything
+    # all_articles = newsapi.get_everything(q='bitcoin',
+    #                                       sources='bbc-news,the-verge',
+    #                                       domains='bbc.co.uk,techcrunch.com',
+    #                                       from_param='2019-10-09',
+    #                                       to='2019-10-09',
+    #                                       language='en',
+    #                                       sort_by='relevancy',
+    #                                       page=2)
+    # # df = pd.DataFrame(top_headlines)
+    #
+    # x = top_headlines["articles"]
+    #
+    # # article = ["df"]
+    # # results = []
+    # #
+    # # for ar in article:
+    # #   results.append(ar["title"])
+    #
+    # # for an in article:
+    # #   results.append(an["url"])
+    # #
+    # #
+    # #
+    # # for i in range(len(results)):
+    # #   print(i + 1, (results[i]))
+    #
+    # # return print(top_headlines)
+    #
+    # return print(x[0]['content'])
+
+    # df = df.title
+
+
+
+    # return html.Div(
+    #     [
+    #         html.Div(
+    #
+    #
+    #        val
+    #
+    #
+    #
+    #         ),
+    #         html.Div(
+    #
+    #         va
+    #
+    #         ),
+    #     ],
+    #     )

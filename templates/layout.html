@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='blog/main.css') }}">
      <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/p5.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/addons/p5.dom.min.js"></script>
 
@@ -20,6 +20,7 @@
     <title> Flask 123 Blog </title>
     {% endif %}
 </head>
+
 <header class="site-header">
     <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top">
         <div class="container">
@@ -32,6 +33,7 @@
                 <div class="navbar-nav mr-auto">
                     <a class="nav-item nav-link" href="{{ url_for('home') }}">Home</a>
                     <a class="nav-item nav-link" href="{{ url_for('about') }}">About</a>
+                    <a class="nav-item nav-link" href="{{ url_for('stock') }}">Stock</a>
                 </div>
                 <!-- Navbar Right Side -->
                 <div class="navbar-nav">
@@ -42,16 +44,10 @@
         </div>
     </nav>
 </header>
+
+
 <body>
 
-
-  <P>
-        <!-- <form id="search" method="GET" onsubmit="myfunc()"> -->
-        Topic should be: <input type="text" id="topic" value=""><br/>
-        <input type = "submit" id="button" value = "Submit"><br/><br/>
-        <button id="button1">Business</button><br/><br/>
-        <button id="button2">Health</button><br/><br/>
-  </P>
 
     <main role="main" class="container">
         <div class="row">
