@@ -34,7 +34,7 @@ import pandas as pd
 import json
 import requests
 from pandas import DataFrame
-from newsapi import NewsApiClient
+
 
 
 
